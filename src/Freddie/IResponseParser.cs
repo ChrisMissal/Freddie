@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using System.IO;
 
 namespace Freddie
 {
     internal interface IResponseParser
     {
-        Response Parse(Stream stream);
+        KeyValuePair<string, Response> Parse(Stream stream);
     }
 }

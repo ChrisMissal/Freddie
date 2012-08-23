@@ -1,26 +1,26 @@
-using Newtonsoft.Json.Linq;
+using System.Dynamic;
 
 namespace Freddie
 {
-    internal class Response : IResponse
+    internal class Response : DynamicObject, IResponse
     {
-        private readonly JToken _content;
+        private readonly dynamic _content;
 
-        internal Response(JToken content)
+        internal Response(dynamic content)
         {
             _content = content;
         }
 
-        public JToken Content
+        public dynamic Content
         {
             get { return _content; }
         }
 
-        public virtual bool Success
+        public bool Success
         {
             get
             {
-                return (_content["error"] == null);
+                return _content.error == null;
             }
         }
     }

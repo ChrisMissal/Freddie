@@ -1,4 +1,4 @@
-namespace Freddie
+namespace Freddie.RequestProviders
 {
     internal class GetAccountDetailsRequestProvider : RequestProviderBase
     {
@@ -6,9 +6,9 @@ namespace Freddie
         {
         }
 
-        protected override string Method
+        public override IResponseParser Parser
         {
-            get { return "getAccountDetails"; }
+            get { return new ObjectParser(); }
         }
     }
 }

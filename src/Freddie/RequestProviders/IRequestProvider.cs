@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace Freddie
+namespace Freddie.RequestProviders
 {
     internal interface IRequestProvider
     {

@@ -1,8 +1,25 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Globalization;
+using System.IO;
+using System.Net.Http;
 using System.Net.Http.Headers;
+using Freddie.RequestProviders;
 
 namespace Freddie
 {
+    internal class Logger
+    {
+        internal static void Log(string request, string response)
+        {
+            File.AppendAllLines(@"C:\freddie.txt", new[] { DateTime.Now.ToString(CultureInfo.InvariantCulture), request, "", response, "" });
+        }
+
+        internal static void Log(Exception ex)
+        {
+            File.AppendAllLines(@"C:\freddie.txt", new[] { DateTime.Now.ToString(CultureInfo.InvariantCulture), ex.Message, ex.StackTrace });
+        }
+    }
+
     internal class RequestExecutor
     {
         private readonly HttpClient _client;
@@ -22,7 +39,11 @@ namespace Freddie
                     ThrowHelper.Message("[{0}] ({1})", (int)resp.StatusCode, resp.ReasonPhrase);
 
                 using (var stream = resp.Content.ReadAsStreamAsync().Result)
-                    return request.Parser.Parse(stream);
+                {
+                    var pair = request.Parser.Parse(stream);
+                    Logger.Log(requestMessage.RequestUri.ToString(), pair.Key);
+                    return pair.Value;
+                }
             }
         }
     }

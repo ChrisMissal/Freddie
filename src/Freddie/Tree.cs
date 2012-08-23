@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Freddie.RequestProviders;
 
 namespace Freddie
 {

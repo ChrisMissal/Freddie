@@ -1,12 +1,12 @@
 using System;
 using System.Net.Http;
 
-namespace Freddie
+namespace Freddie.RequestProviders
 {
     internal abstract class RequestProviderBase : IRequestProvider
     {
         protected readonly Endpoint endpoint;
-        protected readonly IResponseParser parser = new DefaultParser();
+        protected readonly IResponseParser parser = new ObjectParser();
 
         protected RequestProviderBase(Endpoint endpoint)
         {
@@ -21,13 +21,13 @@ namespace Freddie
             return new HttpRequestMessage(HttpMethod.Post, requestUri);
         }
 
-        protected abstract string Method { get; }
+        public abstract IResponseParser Parser { get; }
 
         protected dynamic Args { get; set; }
 
-        public virtual IResponseParser Parser
+        protected virtual string Method
         {
-            get { return parser; }
+            get { return GetType().Name.Replace("RequestProvider", "").ToMethodCasing(); }
         }
     }
 }
