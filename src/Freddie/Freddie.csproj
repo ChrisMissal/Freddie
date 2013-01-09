@@ -85,7 +85,11 @@
     <Compile Include="Validate.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Freddie.nuspec" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
