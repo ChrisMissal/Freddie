@@ -21,6 +21,7 @@ namespace Freddie
             Endpoint = new Endpoint(new ApiKey(apiKey));
             Helper = new DynamicHelper(Endpoint);
             List = new DynamicList(Endpoint);
+            Campaign = new DynamicCampaign(Endpoint);
         }
 
         private Endpoint Endpoint { get; set; }
@@ -28,6 +29,8 @@ namespace Freddie
         public dynamic List { get; private set; }
 
         public dynamic Helper { get; private set; }
+
+        public dynamic Campaign { get; private set; }
 
         public IResponse Do(Func<Tree, object> func)
         {

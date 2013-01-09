@@ -59,6 +59,7 @@
     <Compile Include="ArrayParser.cs" />
     <Compile Include="BaseParser.cs" />
     <Compile Include="BooleanParser.cs" />
+    <Compile Include="DynamicCampaign.cs" />
     <Compile Include="DynamicResponseContent.cs" />
     <Compile Include="ObjectParser.cs" />
     <Compile Include="DynamicBase.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="RequestExecutor.cs" />
     <Compile Include="RequestProviders\Helper\GetAccountDetailsRequestProvider.cs" />
     <Compile Include="RequestProviders\Helper\PingRequestProvider.cs" />
+    <Compile Include="RequestProviders\Campaign\CampaignCreateRequestProvider.cs" />
     <Compile Include="RequestProviders\IRequestProvider.cs" />
     <Compile Include="RequestProviders\List\ListsRequestProvider.cs" />
     <Compile Include="RequestProviders\List\ListStaticSegmentsRequestProvider.cs" />

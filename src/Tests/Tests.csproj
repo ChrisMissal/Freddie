@@ -50,6 +50,7 @@
     <Compile Include="HelperTests.cs" />
     <Compile Include="List\ListTests.cs" />
     <Compile Include="PingTests.cs" />
+    <Compile Include="Campaign\CampaignTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryStringTests.cs" />
   </ItemGroup>

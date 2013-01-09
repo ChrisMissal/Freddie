@@ -9,6 +9,12 @@ namespace Freddie
     [DebuggerStepThrough]
     internal static class Extensions
     {
+        private static string ToHash(this object self, string key)
+        {
+            return string.Join("&", self.GetType().GetProperties()
+                .Select(x => string.Format("{0}[{1}]={2}", key, x.Name, x.GetValue(self, null))).ToArray());
+        }
+
         private static string ToMergeVars(this object self)
         {
             return string.Join("&", self.GetType().GetProperties()
@@ -23,6 +29,12 @@ namespace Freddie
                         var value = x.GetValue(self, null);
                         if (x.Name == "merge_vars")
                             return value.ToMergeVars();
+
+                        if (x.Name == "options")
+                            return value.ToHash("options");
+
+                        if (x.Name == "content")
+                            return value.ToHash("content");
 
                         return x.Name + "=" + HttpUtility.UrlEncode(value.ToString());
                     }).ToArray());
