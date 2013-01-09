@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <add key="ApiKey" value="look up your api key so you can test" />
+  <add key="MasterListId" value="some list id" />
+</appSettings>
