@@ -1,7 +1,6 @@
-﻿using Freddie;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace Tests
+namespace Freddie.Tests
 {
     [TestFixture]
     public class ApiKeyTests
