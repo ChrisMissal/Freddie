@@ -1,4 +1,5 @@
-using Freddie.RequestProviders;
+using Freddie.RequestProviders.Helper;
+using Freddie.RequestProviders.List;
 
 namespace Freddie
 {
