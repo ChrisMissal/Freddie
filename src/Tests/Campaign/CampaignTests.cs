@@ -19,17 +19,17 @@ namespace Freddie.Tests.Campaign
         private static object GetSampleCampaignCreateArgs()
         {
             var args = new
+            {
+                type = "plaintext",
+                options = new
                 {
-                    type = "plaintext",
-                    options = new
-                        {
-                            list_id = MasterListId,
-                            subject = "test",
-                            from_email = "chris.missal%2BFreddieNET@gmail.com",
-                            from_name = "FreddieTEST"
-                        },
-                    content = new {text = @"Dear citizen, You are neat! Love Freddie"}
-                };
+                    list_id = MasterListId,
+                    subject = "test",
+                    from_email = "chris.missal%2BFreddieNET@gmail.com",
+                    from_name = "FreddieTEST"
+                },
+                content = new { text = @"Dear citizen, You are neat! Love Freddie" }
+            };
             return args;
         }
 
@@ -63,6 +63,15 @@ namespace Freddie.Tests.Campaign
             var deleteResponse = tree.Do(x => x.Campaign.CampaignDelete(dArgs));
 
             Assert.True(deleteResponse.Success);
+        }
+
+        [Test]
+        public void Can_campaignTemplateContent()
+        {
+            var args = new { cid = "9349a04e77" };
+            var templateContentResponse = tree.Do(x => x.Campaign.campaignTemplateContent(args));
+
+            Assert.True(templateContentResponse.Success);
         }
     }
 }
