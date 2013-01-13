@@ -1,16 +1,14 @@
-using Freddie.RequestProviders.Campaign;
-
 namespace Freddie
 {
+    [Handles("campaignCreate", typeof(StringParser))]
+    [Handles("campaignContent", typeof(ObjectParser))]
+    [Handles("campaigns", typeof(ObjectParser))]
+    [Handles("campaignDelete", typeof(BooleanParser))]
+    [Handles("campaignPause", typeof(BooleanParser))]
     internal class DynamicCampaign : DynamicBase
     {
         internal DynamicCampaign(Endpoint endpoint) : base(endpoint)
         {
-            methods.Add("campaignCreate", typeof(CampaignCreateRequestProvider));
-            methods.Add("campaignContent", typeof(CampaignContentRequestProvider));
-            methods.Add("campaigns", typeof(CampaignsRequestProvider));
-            methods.Add("campaignDelete", typeof(CampaignDeleteRequestProvider));
-            methods.Add("campaignPause", typeof(CampaignPauseRequestProvider));
         }
     }
 }
