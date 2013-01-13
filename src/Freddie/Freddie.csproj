@@ -72,6 +72,10 @@
     <Compile Include="IResponseParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestExecutor.cs" />
+    <Compile Include="RequestProviders\Campaign\CampaignContentRequestProvider.cs" />
+    <Compile Include="RequestProviders\Campaign\CampaignDeleteRequestProvider.cs" />
+    <Compile Include="RequestProviders\Campaign\CampaignPauseRequestProvider.cs" />
+    <Compile Include="RequestProviders\Campaign\CampaignsRequestProvider.cs" />
     <Compile Include="RequestProviders\Helper\GetAccountDetailsRequestProvider.cs" />
     <Compile Include="RequestProviders\Helper\PingRequestProvider.cs" />
     <Compile Include="RequestProviders\Campaign\CampaignCreateRequestProvider.cs" />

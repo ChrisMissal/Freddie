@@ -8,6 +8,16 @@ namespace Freddie.Tests.Campaign
         [Test]
         public void Can_CreateCampaign()
         {
+            var args = GetSampleCampaignCreateArgs();
+
+            var createResponse = tree.Do(x => x.Campaign.CampaignCreate(args));
+
+            Assert.True(createResponse.Success);
+            Assert.That(createResponse.Content, Is.Not.Null);
+        }
+
+        private static object GetSampleCampaignCreateArgs()
+        {
             var args = new
                 {
                     type = "plaintext",
@@ -18,13 +28,41 @@ namespace Freddie.Tests.Campaign
                             from_email = "chris.missal%2BFreddieNET@gmail.com",
                             from_name = "FreddieTEST"
                         },
-                    content = new { text = @"Dear citizen, You are neat! Love Freddie" }
+                    content = new {text = @"Dear citizen, You are neat! Love Freddie"}
                 };
+            return args;
+        }
 
+        [Test]
+        public void Can_get_campaigns()
+        {
+            var campaignsResponse = tree.Do(x => x.Campaign.Campaigns());
+
+            Assert.True(campaignsResponse.Success);
+            Assert.That((int)campaignsResponse.Content.total, Is.GreaterThan(1));
+        }
+
+        [Test]
+        public void Can_get_campaignContent()
+        {
+            var campaignsResponse = tree.Do(x => x.Campaign.Campaigns());
+
+            var args = new { cid = campaignsResponse.Content.data[0].id };
+            var campaignContentResponse = tree.Do(x => x.Campaign.CampaignContent(args));
+
+            Assert.True(campaignContentResponse.Success);
+        }
+
+        [Test]
+        public void Can_campaignDelete()
+        {
+            var args = GetSampleCampaignCreateArgs();
             var createResponse = tree.Do(x => x.Campaign.CampaignCreate(args));
 
-            Assert.True(createResponse.Success);
-            Assert.That(createResponse.Content, Is.Not.Null);
+            var dArgs = new { cid = createResponse.Content.text };
+            var deleteResponse = tree.Do(x => x.Campaign.CampaignDelete(dArgs));
+
+            Assert.True(deleteResponse.Success);
         }
     }
 }

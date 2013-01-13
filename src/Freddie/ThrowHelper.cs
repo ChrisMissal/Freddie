@@ -1,7 +1,9 @@
 using System;
+using System.Diagnostics;
 
 namespace Freddie
 {
+    [DebuggerStepThrough]
     internal static class ThrowHelper
     {
         internal static void NullValue(Exception innerException, string message)
