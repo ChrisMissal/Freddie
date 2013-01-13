@@ -7,11 +7,12 @@ namespace Freddie
     [DebuggerStepThrough]
     internal static class Extensions
     {
-        internal static IEnumerable<object> Concat(this object self, params object[] args)
+        internal static IEnumerable<object> Concat(this object[] self, object[] other)
         {
-            yield return self;
-            foreach (var arg in args)
-                yield return arg;
+            foreach (var a in self)
+                yield return a;
+            foreach (var b in other)
+                yield return b;
         }
 
         internal static string SubstringAfter(this string self, string delimiter)

@@ -61,6 +61,7 @@
     <Compile Include="BooleanParser.cs" />
     <Compile Include="DynamicCampaign.cs" />
     <Compile Include="DynamicResponseContent.cs" />
+    <Compile Include="HandlesAttribute.cs" />
     <Compile Include="QueryStringBuilder.cs" />
     <Compile Include="ObjectParser.cs" />
     <Compile Include="DynamicBase.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="RequestProviders\List\ListSubscribeRequestProvider.cs" />
     <Compile Include="RequestProviders\List\ListUpdateMemberRequestProvider.cs" />
     <Compile Include="RequestProviders\RequestProviderBase.cs" />
+    <Compile Include="RequestProviders\UniversalRequestProvider.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="StringParser.cs" />
     <Compile Include="ThrowHelper.cs" />
