@@ -61,6 +61,7 @@
     <Compile Include="BooleanParser.cs" />
     <Compile Include="DynamicCampaign.cs" />
     <Compile Include="DynamicResponseContent.cs" />
+    <Compile Include="QueryStringBuilder.cs" />
     <Compile Include="ObjectParser.cs" />
     <Compile Include="DynamicBase.cs" />
     <Compile Include="DynamicHelper.cs" />

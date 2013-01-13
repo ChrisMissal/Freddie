@@ -7,6 +7,7 @@ namespace Freddie.RequestProviders
     {
         protected readonly Endpoint endpoint;
         protected readonly IResponseParser parser = new ObjectParser();
+        protected readonly QueryStringBuilder builder = new QueryStringBuilder();
 
         protected RequestProviderBase(Endpoint endpoint)
         {
@@ -16,7 +17,10 @@ namespace Freddie.RequestProviders
         public virtual HttpRequestMessage GetRequest()
         {
             var relativeUri = "?method=" + Method + "&apikey=" + endpoint.ApiKey;
-            if (Args != null) relativeUri += Extensions.ToQueryString(Args);
+
+            if (Args != null)
+                relativeUri += builder.Build(Args);
+
             var requestUri = new Uri(endpoint.Uri, relativeUri);
             return new HttpRequestMessage(HttpMethod.Post, requestUri);
         }
