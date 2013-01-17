@@ -49,6 +49,44 @@ namespace Freddie.Tests.List
         }
 
         [Test]
+        public void Get_ListAbuseReports()
+        {
+            var args = new { id = MasterListId };
+            var abuseResponse = tree.Do(x => x.List.ListAbuseReports(args));
+
+            Assert.That(abuseResponse.Success, Is.True);
+
+            // brittle assertions
+            Assert.That(abuseResponse.Content.items.total.Value, Is.EqualTo(0));
+            Assert.That(abuseResponse.Content.items.data, Is.Empty);
+        }
+
+        [Test]
+        public void Get_ListActivity()
+        {
+            var args = new { id = MasterListId };
+            var activityResponse = tree.Do(x => x.List.ListActivity(args));
+
+            Assert.That(activityResponse.Success, Is.True);
+            var firstDay = activityResponse.Content.items[0].day;
+
+            // brittle assertion :(
+            Assert.That(DateTime.Parse(firstDay.Value), Is.EqualTo(new DateTime(2012, 8, 23)));
+        }
+
+        [Test]
+        public void Can_ListClients()
+        {
+            var args = new { id = MasterListId };
+            var clientsResponse = tree.Do(x => x.List.ListClients(args));
+
+            Assert.That(clientsResponse.Success, Is.True);
+
+            Assert.That(clientsResponse.Content.success.desktop, Is.Empty);
+            Assert.That(clientsResponse.Content.success.mobile, Is.Empty);
+        }
+
+        [Test]
         public void Can_ListUpdate()
         {
             var member = new {
@@ -59,6 +97,72 @@ namespace Freddie.Tests.List
             var details = tree.Do(x => x.List.ListUpdateMember(member));
 
             Assert.That(details.Success, Is.True);
+        }
+
+        [Test]
+        public void Can_listGrowthHistory()
+        {
+            var growthResponse = tree.Do(x => x.List.ListGrowthHistory(new { id = MasterListId }));
+
+            Assert.That(growthResponse.Success, Is.True);
+            Assert.That(growthResponse.Content.items[0].optins.Value, Is.EqualTo("2")); // uggh, this should be an int, not a string
+        }
+
+        [Test]
+        public void Can_listLocations()
+        {
+            var args = new
+            {
+                id = MasterListId,
+            };
+            var locationResponse = tree.Do(x => x.List.listLocations(args));
+
+            Assert.That(locationResponse.Success, Is.True);
+            Assert.That(locationResponse.Content.items, Is.Not.Empty);
+        }
+
+        [Test]
+        public void Can_listMemberActivity()
+        {
+            var args = new
+            {
+                id = MasterListId,
+                // brittle data for test :(
+                email_address = "chris.missal+e426a872-9303-4d35-bc74-3ab09daa2693@gmail.com",
+            };
+            var activityResponse = tree.Do(x => x.List.listMemberActivity(args));
+
+            Assert.That(activityResponse.Success, Is.True);
+            Assert.That(activityResponse.Content.items, Is.Not.Empty);
+        }
+
+        [Test]
+        public void Can_listMemberInfo()
+        {
+            var args = new
+            {
+                id = MasterListId,
+                // brittle data for test :(
+                email_address = "chris.missal+e426a872-9303-4d35-bc74-3ab09daa2693@gmail.com",
+            };
+            var infoResponse = tree.Do(x => x.List.listMemberInfo(args));
+
+            Assert.That(infoResponse.Success, Is.True);
+            Assert.That(infoResponse.Content.items, Is.Not.Empty);
+        }
+
+        [Test]
+        public void Can_listMembers()
+        {
+            var args = new
+            {
+                id = MasterListId,
+                status = "subscribed",
+            };
+            var membersResponse = tree.Do(x => x.List.listMembers(args));
+
+            Assert.That(membersResponse.Success, Is.True);
+            Assert.That(membersResponse.Content.items, Is.Not.Empty);
         }
     }
 }
