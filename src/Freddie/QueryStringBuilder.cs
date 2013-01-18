@@ -8,7 +8,7 @@ namespace Freddie
     {
         private readonly HashSet<string> hashKeys = new HashSet<string>
         {
-            "merge_vars", "options", "content"
+            "merge_vars", "options", "content", "values",
         };
 
         public string Build(object value)

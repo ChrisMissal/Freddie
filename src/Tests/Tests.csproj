@@ -53,6 +53,7 @@
     <Compile Include="Campaign\CampaignTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryStringBuilderTests.cs" />
+    <Compile Include="Template\TemplateTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -62,7 +62,9 @@
     <Compile Include="DynamicCampaign.cs" />
     <Compile Include="DynamicList.cs" />
     <Compile Include="DynamicResponseContent.cs" />
+    <Compile Include="DynamicTemplate.cs" />
     <Compile Include="HandlesAttribute.cs" />
+    <Compile Include="IntParser.cs" />
     <Compile Include="QueryStringBuilder.cs" />
     <Compile Include="ObjectParser.cs" />
     <Compile Include="DynamicBase.cs" />
