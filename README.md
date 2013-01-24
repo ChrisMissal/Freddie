@@ -1,4 +1,4 @@
-Freddie
+Freddie [![endorse](http://api.coderwall.com/chrismissal/endorsecount.png)](http://coderwall.com/chrismissal)
 =======
 
 Freddie (the MailChimp mascot) is a .NET API for MailChimp that keeps things simple.
