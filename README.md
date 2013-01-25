@@ -22,4 +22,24 @@ And in your config file:
         <add key="Freddie.ApiKey" value="your-api-key-from-mailchimp.com" />
     </appSettings>
 
-Currently, there is little support for all api methods, but since this project was created less than 18 hours ago, I'll be adding more soon.
+Currently, there is partial support for all api methods. The goal is to add them as they're need in other projects. (Other than the obvious ones of course.
+
+## Usage
+
+The following samples show how to do some basic functions with Freddie.
+
+### Update a list member
+
+This simple example shows how to update a first and last name for a user. There are many other fields you'll want to update, they'll go here as well.
+
+    var member = new {
+        id = "your_list_id", // List information can be fetched with Lists => tree.Do(x => x.List.Lists());
+        email_address = "your_best_customer@gmail.com",
+        merge_vars = new { fname = "Chris", lname = "Missal" }
+    };
+    var details = tree.Do(x => x.List.ListUpdateMember(member));
+
+    if (details.Success)
+    {
+        // update was successful
+    }
