@@ -11,9 +11,10 @@ namespace Freddie
     [Handles("listMemberActivity", typeof(ArrayParser))]
     [Handles("listMemberInfo", typeof(ArrayParser))]
     [Handles("listMembers", typeof(ArrayParser))]
-    [Handles("listUpdateMember", typeof(BooleanParser))]
     [Handles("listStaticSegments", typeof(ArrayParser))]
     [Handles("listSubscribe", typeof(BooleanParser))]
+    [Handles("listUnsubscribe", typeof(BooleanParser))]
+    [Handles("listUpdateMember", typeof(BooleanParser))]
     [Handles("lists", typeof(ObjectParser))]
     internal class DynamicList : DynamicBase
     {

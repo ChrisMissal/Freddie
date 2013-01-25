@@ -164,5 +164,26 @@ namespace Freddie.Tests.List
             Assert.That(membersResponse.Success, Is.True);
             Assert.That(membersResponse.Content.items, Is.Not.Empty);
         }
+
+        [Test]
+        public void Can_listUnsubscribe()
+        {
+            var email = "chris.missal+" + Guid.NewGuid().ToString("n") + "@gmail.com";
+            var args = new
+            {
+                id = MasterListId,
+                double_optin = false,
+                update_existing = false,
+                email_address = email,
+                send_goodbye = false,
+                send_notify = false,
+            };
+
+            var subscribe = tree.Do(x => x.List.ListSubscribe(args));
+            Assert.That(subscribe.Success, Is.True);
+
+            var unsubscribe = tree.Do(x => x.List.ListUnsubscribe(args));
+            Assert.That(unsubscribe.Success, Is.True);
+        }
     }
 }
