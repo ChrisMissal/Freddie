@@ -1,6 +1,3 @@
-using System;
-using System.Net.Http;
-
 namespace Freddie.RequestProviders
 {
     internal abstract class RequestProviderBase : IRequestProvider
@@ -14,15 +11,14 @@ namespace Freddie.RequestProviders
             this.endpoint = endpoint;
         }
 
-        public virtual HttpRequestMessage GetRequest()
+        public virtual string GetRequest()
         {
             var relativeUri = "?method=" + Method + "&apikey=" + endpoint.ApiKey;
 
             if (Args != null)
                 relativeUri += builder.Build(Args);
 
-            var requestUri = new Uri(endpoint.Uri, relativeUri);
-            return new HttpRequestMessage(HttpMethod.Post, requestUri);
+            return relativeUri;
         }
 
         public abstract IResponseParser Parser { get; }

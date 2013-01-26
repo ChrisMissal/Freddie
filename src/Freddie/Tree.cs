@@ -6,7 +6,7 @@ namespace Freddie
 {
     public class Tree
     {
-        private readonly RequestExecutor _executor = new RequestExecutor();
+        private readonly RequestExecutor _executor;
 
         public static Tree Create()
         {
@@ -23,6 +23,8 @@ namespace Freddie
             List = new DynamicList(Endpoint);
             Campaign = new DynamicCampaign(Endpoint);
             Template = new DynamicTemplate(Endpoint);
+
+            _executor = new RequestExecutor(Endpoint.Uri);
         }
 
         private Endpoint Endpoint { get; set; }

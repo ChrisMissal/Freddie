@@ -1,10 +1,8 @@
-using System.Net.Http;
-
 namespace Freddie.RequestProviders
 {
     internal interface IRequestProvider
     {
-        HttpRequestMessage GetRequest();
+        string GetRequest();
 
         IResponseParser Parser { get; }
     }
