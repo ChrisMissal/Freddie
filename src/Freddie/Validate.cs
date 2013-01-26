@@ -3,11 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace Freddie
 {
-    public static class Validate
+    internal static class Validate
     {
         private static readonly Regex apiRegex = new Regex(@"^(\w*)\-(\w){3}$");
 
-        public static void IsValidApiKey(string apiKey)
+        internal static void IsValidApiKey(string apiKey)
         {
             if (!string.IsNullOrWhiteSpace(apiKey) && apiRegex.IsMatch(apiKey))
                 return;
@@ -15,7 +15,7 @@ namespace Freddie
             ThrowHelper.InvalidApiKeyFormat(apiKey);
         }
 
-        public static void NotNull(object obj, string paramName, string message)
+        internal static void NotNull(object obj, string paramName, string message)
         {
             if (obj != null)
                 return;

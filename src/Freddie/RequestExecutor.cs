@@ -10,7 +10,21 @@ namespace Freddie
 
         internal RequestExecutor(Uri uri)
         {
-            _client = HttpClient.Create(uri.AbsoluteUri);
+            var settings = new HttpClientSettings
+                {
+                    UserAgent = new UserAgent(UserAgentString),
+                };
+
+            _client = HttpClient.Create(uri.AbsoluteUri, settings);
+        }
+
+        protected string UserAgentString
+        {
+            get
+            {
+                var version = GetType().Assembly.GetName().Version;
+                return string.Format("Freddie/{0}.{1}", version.Major, version.Minor);
+            }
         }
 
         internal Response Send(IRequestProvider request)
