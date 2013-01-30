@@ -3,6 +3,7 @@
 namespace Freddie.Tests.Campaign
 {
     [TestFixture]
+    [Category("Integration")]
     public class CampaignTests : BaseTester
     {
         [Test]

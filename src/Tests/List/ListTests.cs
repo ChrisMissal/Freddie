@@ -4,6 +4,7 @@ using NUnit.Framework;
 namespace Freddie.Tests.List
 {
     [TestFixture]
+    [Category("Integration")]
     public class ListTests : BaseTester
     {
         [Test]

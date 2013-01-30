@@ -3,6 +3,7 @@ using NUnit.Framework;
 namespace Freddie.Tests
 {
     [TestFixture]
+    [Category("Integration")]
     public class PingTests : BaseTester
     {
         [Test]
