@@ -11,8 +11,8 @@ namespace Freddie
             ParserType = parserType;
         }
 
-        public string Method { get; set; }
+        internal string Method { get; private set; }
 
-        public Type ParserType { get; set; }
+        internal Type ParserType { get; private set; }
     }
 }
