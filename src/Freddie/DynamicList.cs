@@ -2,6 +2,7 @@ namespace Freddie
 {
     [Handles("listAbuseReports", typeof(ArrayParser))]
     [Handles("listActivity", typeof(ArrayParser))]
+    [Handles("listBatchSubscribe", typeof(ArrayParser))]
     [Handles("listClients", typeof(BooleanParser))]
     [Handles("listGrowthHistory", typeof(ArrayParser))]
     [Handles("listInterestGroupAdd", typeof(BooleanParser))]

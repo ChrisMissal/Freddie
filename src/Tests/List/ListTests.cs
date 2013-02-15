@@ -186,5 +186,26 @@ namespace Freddie.Tests.List
             var unsubscribe = tree.Do(x => x.List.ListUnsubscribe(args));
             Assert.That(unsubscribe.Success, Is.True);
         }
+
+        [Test]
+        public void Can_listBatchSubscribe()
+        {
+            var args = new
+            {
+                id = MasterListId,
+                batch = new []
+                    {
+                        new { EMAIL = "63e12c3383cc4222bc504bde936f64f6@gmail.com", EMAIL_TYPE = "html" },
+                        new { EMAIL = "cbfb9fb6e7e24188aea129aa47ba08fb@gmail.com", EMAIL_TYPE = "html" },
+                        new { EMAIL = "2f0dd9c7f6504d19916c209efbfcf561@gmail.com", EMAIL_TYPE = "html" },
+                        new { EMAIL = "c291a94840194c848a2867db5b28b176@gmail.com", EMAIL_TYPE = "html" },
+                    },
+                double_optin = false,
+                update_existing = true,
+            };
+            var result = tree.Do(x => x.List.listBatchSubscribe(args));
+
+            Assert.That(result.Success, Is.True);
+        }
     }
 }
