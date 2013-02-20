@@ -10,7 +10,7 @@
     <description>$description$</description>
     <projectUrl>https://github.com/ChrisMissal/Freddie</projectUrl>
     <licenseUrl>https://raw.github.com/ChrisMissal/Freddie/master/license.txt</licenseUrl>
-    <iconUrl>https://raw.github.com/ChrisMissal/Freddie/master/freddie.jpg</iconUrl>
+    <iconUrl>https://raw.github.com/ChrisMissal/Freddie/master/freddie_sq.jpg</iconUrl>
     <copyright>Copyright 2012 - 2013 Chris Missal</copyright>
     <tags>email mailchimp api wrapper freddie</tags>
   </metadata>
