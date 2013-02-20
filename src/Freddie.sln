@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freddie", "Freddie\Freddie.csproj", "{757DEA90-7425-40E3-8FC1-20B38B91D0A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{F41ECBC3-7DE1-4234-B554-AECBD68506DF}"
@@ -25,7 +25,6 @@ Global
 		{F41ECBC3-7DE1-4234-B554-AECBD68506DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F41ECBC3-7DE1-4234-B554-AECBD68506DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F41ECBC3-7DE1-4234-B554-AECBD68506DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F41ECBC3-7DE1-4234-B554-AECBD68506DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
