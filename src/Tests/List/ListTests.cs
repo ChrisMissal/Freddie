@@ -72,7 +72,7 @@ namespace Freddie.Tests.List
             var firstDay = activityResponse.Content.items[0].day;
 
             // brittle assertion :(
-            Assert.That(DateTime.Parse(firstDay.Value), Is.EqualTo(new DateTime(2012, 8, 23)));
+            Assert.That(DateTime.Parse(firstDay.Value), Is.EqualTo(new DateTime(2012, 12, 14)));
         }
 
         [Test]

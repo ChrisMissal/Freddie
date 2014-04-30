@@ -36,6 +36,10 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Quiche, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Quiche.1.0.0-CI00010\lib\net40\Quiche.dll</HintPath>
+    </Reference>
     <Reference Include="SpeakEasy, Version=0.1.13.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SpeakEasy.0.1.13.1\lib\net40\SpeakEasy.dll</HintPath>
@@ -57,7 +61,6 @@
     <Compile Include="DynamicTemplate.cs" />
     <Compile Include="HandlesAttribute.cs" />
     <Compile Include="IntParser.cs" />
-    <Compile Include="QueryStringBuilder.cs" />
     <Compile Include="ObjectParser.cs" />
     <Compile Include="DynamicBase.cs" />
     <Compile Include="DynamicHelper.cs" />

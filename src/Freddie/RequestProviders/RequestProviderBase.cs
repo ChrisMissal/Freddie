@@ -1,10 +1,12 @@
 namespace Freddie.RequestProviders
 {
+    using Quiche;
+
     internal abstract class RequestProviderBase : IRequestProvider
     {
         protected readonly Endpoint endpoint;
         protected readonly IResponseParser parser = new ObjectParser();
-        protected readonly QueryStringBuilder builder = new QueryStringBuilder();
+        protected readonly Builder builder = new Builder();
 
         protected RequestProviderBase(Endpoint endpoint)
         {
@@ -13,12 +15,10 @@ namespace Freddie.RequestProviders
 
         public virtual string GetRequest()
         {
-            var relativeUri = "?method=" + Method + "&apikey=" + endpoint.ApiKey;
-
             if (Args != null)
-                relativeUri += builder.Build(Args);
+                return builder.ToQueryString(Args) + "&method=" + Method + "&apikey=" + endpoint.ApiKey;
 
-            return relativeUri;
+            return builder.ToQueryString(new { method = Method, apikey = endpoint.ApiKey });
         }
 
         public abstract IResponseParser Parser { get; }

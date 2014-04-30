@@ -48,7 +48,8 @@ namespace Freddie.Tests.Campaign
         {
             var campaignsResponse = tree.Do(x => x.Campaign.Campaigns());
 
-            var args = new { cid = campaignsResponse.Content.data[0].id };
+            string id = campaignsResponse.Content.data[0].id;
+            var args = new { cid = id };
             var campaignContentResponse = tree.Do(x => x.Campaign.CampaignContent(args));
 
             Assert.True(campaignContentResponse.Success);
@@ -60,7 +61,8 @@ namespace Freddie.Tests.Campaign
             var args = GetSampleCampaignCreateArgs();
             var createResponse = tree.Do(x => x.Campaign.CampaignCreate(args));
 
-            var dArgs = new { cid = createResponse.Content.text };
+            string text = createResponse.Content.text;
+            var dArgs = new { cid = text };
             var deleteResponse = tree.Do(x => x.Campaign.CampaignDelete(dArgs));
 
             Assert.True(deleteResponse.Success);
